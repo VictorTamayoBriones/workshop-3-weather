@@ -35,13 +35,21 @@ const showWeatherData = (data)=>{
 }
 
 const getWeatherHuamantla = async ()=>{
-    const res = await axios.get(`${baseUrl}data/2.5/weather?q=Huamantla&appid=${apiKey}&units=metric`);
-    showWeatherData(res.data);
+    try{
+        const res = await axios.get(`${baseUrl}data/2.5/weather?q=Huamantla&appid=${apiKey}&units=metric`);
+        showWeatherData(res.data);
+    }catch(err){
+        console.log(err);
+    }
 }
 
 const getWeatherBySeacrh = async ( city )=>{
-    const res = await axios.get(`${baseUrl}data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`);
-    showWeatherData(res.data);
+    try{
+        const res = await axios.get(`${baseUrl}data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`);
+        showWeatherData(res.data);
+    }catch(err){
+        console.log(err);
+    }
 }
 
 
