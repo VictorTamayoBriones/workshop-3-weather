@@ -1,5 +1,5 @@
 import { showWeatherData } from './showData'
-import axios from 'axios';
+// import axios from 'axios';
 import.meta.env;
 
 const baseUrl = __SNOWPACK_ENV__.SNOWPACK_PUBLIC_API_URL;
@@ -20,7 +20,11 @@ export const getWeatherHuamantla = async ()=>{
 
 export const getWeatherBySeacrh = async ( city )=>{
 
-    const res = await axios.get(`${baseUrl}data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`, {withCredentials: false});
-    showWeatherData(res.data);
+    fetch(`${baseUrl}data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`)
+        .then(res=>res.json())
+        .then(data=>{
+            showWeatherData(data);
+        })
+    // const res = await axios.get(`${baseUrl}data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`, {withCredentials: false});
 
 }
