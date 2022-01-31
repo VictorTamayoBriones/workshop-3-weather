@@ -8,8 +8,13 @@ const apiKey = __SNOWPACK_ENV__.SNOWPACK_PUBLIC_API_KEY;
 
 export const getWeatherHuamantla = async ()=>{
 
-    const res = await axios.get(`${baseUrl}data/2.5/weather?q=Huamantla&appid=${apiKey}&units=metric`, {withCredentials: false});
-    showWeatherData(res.data);
+    fetch(`${baseUrl}data/2.5/weather?q=Huamantla&appid=${apiKey}&units=metric`)
+        .then(res=>res.json())
+        .then(data=>{
+            // console.log(data);
+            showWeatherData(data);
+        })
+    // const res = await axios.get(`${baseUrl}data/2.5/weather?q=Huamantla&appid=${apiKey}&units=metric`, {withCredentials: false});
 
 }
 
