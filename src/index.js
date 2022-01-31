@@ -1,57 +1,7 @@
-import axios from 'axios';
-import.meta.env;
+import { getWeatherHuamantla, getWeatherBySeacrh } from './getDAata';
 
-const $cityName = document.querySelector('#cityName');
-const $weatherIcon = document.querySelector('#weather-icon');
-const $weatherTemp = document.querySelector('#weather-temp');
-const $greeting = document.querySelector('#greeting');
 const $search = document.querySelector('form');
 const $input = $search.querySelector('input');
-
-const daysOfWeek=['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-
-const baseUrl = __SNOWPACK_ENV__.SNOWPACK_PUBLIC_API_URL;
-const apiKey = __SNOWPACK_ENV__.SNOWPACK_PUBLIC_API_KEY;
-
-
-const showWeatherData = (data)=>{
-
-    const weather = {
-        desc: data.weather[0].description,
-        icon: data.weather[0].icon,
-        temp: `${data.main.temp}º`,
-        feels: `feels like ${data.main.feels_like}`,
-        date: new Date()
-    }
-    const icon = weather.icon
-    const day = weather.date.getDay();
-
-    $cityName.textContent = `${data.name}, ${data.sys.country}`;
-    $weatherIcon.src = `http://openweathermap.org/img/wn/${icon}@2x.png`
-    $weatherTemp.childNodes[1].textContent = weather.temp;
-    $weatherTemp.childNodes[3].textContent = weather.feels;
-    $greeting.childNodes[1].textContent = weather.desc;
-    $greeting.childNodes[3].textContent = daysOfWeek[day];
-}
-
-const getWeatherHuamantla = async ()=>{
-    try{
-        const res = await axios.get(`${baseUrl}data/2.5/weather?q=Huamantla&appid=${apiKey}&units=metric`);
-        showWeatherData(res.data);
-    }catch(err){
-        console.log(err);
-    }
-}
-
-const getWeatherBySeacrh = async ( city )=>{
-    try{
-        const res = await axios.get(`${baseUrl}data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`);
-        showWeatherData(res.data);
-    }catch(err){
-        console.log(err);
-    }
-}
-
 
 const handleSubmit = (e)=>{
     e.preventDefault();
