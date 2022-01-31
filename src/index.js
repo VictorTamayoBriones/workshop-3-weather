@@ -1,4 +1,5 @@
 import axios from 'axios';
+import.meta.env;
 
 const $cityName = document.querySelector('#cityName');
 const $weatherIcon = document.querySelector('#weather-icon');
@@ -9,8 +10,9 @@ const $input = $search.querySelector('input');
 
 const daysOfWeek=['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
-const baseUrl = 'http://api.openweathermap.org/';
-const apiKey = '25745ce0da2954b896c845ab208d6851';
+const baseUrl = __SNOWPACK_ENV__.SNOWPACK_PUBLIC_API_URL;
+const apiKey = __SNOWPACK_ENV__.SNOWPACK_PUBLIC_API_KEY;
+
 
 const showWeatherData = (data)=>{
 
