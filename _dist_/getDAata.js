@@ -1,7 +1,7 @@
 import * as __SNOWPACK_ENV__ from '../_snowpack/env.js';
 
 import { showWeatherData } from './showData.js'
-import axios from '../_snowpack/pkg/axios.js';
+// import axios from 'axios';
 __SNOWPACK_ENV__;
 
 const baseUrl = __SNOWPACK_ENV__.SNOWPACK_PUBLIC_API_URL;
@@ -22,7 +22,11 @@ export const getWeatherHuamantla = async ()=>{
 
 export const getWeatherBySeacrh = async ( city )=>{
 
-    const res = await axios.get(`${baseUrl}data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`, {withCredentials: false});
-    showWeatherData(res.data);
+    fetch(`${baseUrl}data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`)
+        .then(res=>res.json())
+        .then(data=>{
+            showWeatherData(data);
+        })
+    // const res = await axios.get(`${baseUrl}data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`, {withCredentials: false});
 
 }
