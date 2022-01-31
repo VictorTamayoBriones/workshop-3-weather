@@ -1,3 +1,76 @@
-@import 'tailwindcss/dist/base.css';
-@import 'tailwindcss/dist/components.css';
-@import 'tailwindcss/dist/utilities.css';
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Quicksand", sans-serif;
+  }
+  
+  body {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 80px repeat(4, 1fr);
+    align-items: center;
+    justify-items: center;
+    background: #04192b;
+    color: #fff;
+    letter-spacing: 2px;
+  }
+  
+  .city {
+    font-size: 24px;
+  }
+  .city h2 {
+    font-weight: 600;
+    text-shadow: 2px 2px 0px orange;
+  }
+  
+  .weather-icon img {
+    scale: 3;
+  }
+  
+  .weather-temp, .greeting {
+    text-align: center;
+  }
+  .weather-temp h3, .greeting h3 {
+    font-weight: 700;
+    font-size: 80px;
+  }
+  .weather-temp p, .greeting p {
+    font-weight: 600;
+    font-size: 30px;
+  }
+  .weather-temp p:nth-child(1), .greeting p:nth-child(1) {
+    color: orange;
+  }
+  
+  .seacrh-bar {
+    align-self: flex-end;
+    width: 90%;
+    height: max-content;
+    padding: 5px;
+    margin: auto;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    border: solid 1px #ccc;
+    gap: 10px;
+    transform: translateY(40px);
+  }
+  .seacrh-bar input {
+    width: 100%;
+    border: none;
+    outline: none;
+    height: 100%;
+    background: transparent;
+    color: #fff;
+    font-size: 18px;
+  }
+  
+  form {
+    width: 100%;
+  }
+  
+  /*# sourceMappingURL=style.css.map */
+  
