@@ -1,5 +1,6 @@
 export const SNOWPACK_PUBLIC_API_KEY = "25745ce0da2954b896c845ab208d6851";
 export const SNOWPACK_PUBLIC_API_URL = "http://api.openweathermap.org/";
+export const SNOWPACK_PUBLIC_ICON_URL = "http://openweathermap.org/img/wn/";
 export const API_URL = "http://api.openweathermap.org/";
 export const API_KEY = "25745ce0da2954b896c845ab208d6851";
 export const MODE = "production";
